@@ -145,3 +145,25 @@ def check_duplicate_rows(df):
     duplicates = df[df.duplicated()]
 
     return duplicates
+
+
+def get_min_max(df, column_name):
+    """
+    Calculate the minimum and maximum values of a specified column and return them in a DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    column_name (str): The name of the column for which to calculate the min and max values.
+
+    Returns:
+    pd.DataFrame: A DataFrame containing the minimum and maximum values of the specified column.
+    """
+    min_value = df[column_name].min()
+    max_value = df[column_name].max()
+
+    result_df = pd.DataFrame({
+        'Statistic': ['Minimum', 'Maximum'],
+        'Value': [min_value, max_value]
+    })
+
+    return result_df
