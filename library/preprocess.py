@@ -97,3 +97,32 @@ def detect_outliers(df: pd.DataFrame, column_name: str, lower_quantile: float = 
 # })
 # outliers = detect_outliers(df, 'Age')
 # print(outliers)
+
+
+
+
+def count_missing_values(df):
+    """
+    Count the number of missing values for each column in a DataFrame.
+    
+    Parameters:
+    df (pd.DataFrame): The DataFrame to analyze.
+    
+    Returns:
+    pd.DataFrame: A DataFrame with column names and the count of missing values.
+    """
+    # Initialize an empty list to store the results
+    missing_values_list = []
+    
+    # Iterate over each column in the DataFrame
+    for column in df.columns:
+        # Count the number of missing values in the column
+        missing_count = df[column].isnull().sum()
+        
+        # Append the column name and missing count to the list
+        missing_values_list.append({'Column': column, 'Missing Values': missing_count})
+    
+    # Convert the list of dictionaries to a DataFrame
+    missing_values_df = pd.DataFrame(missing_values_list)
+    
+    return missing_values_df
