@@ -126,3 +126,22 @@ def count_missing_values(df):
     missing_values_df = pd.DataFrame(missing_values_list)
     
     return missing_values_df
+
+
+
+
+
+def check_duplicate_rows(df):
+    """
+    Check for duplicate rows in the DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+
+    Returns:
+    pd.DataFrame: A DataFrame containing the duplicate rows, if any.
+    """
+    # Find duplicate rows
+    duplicates = df[df.duplicated()]
+
+    return duplicates
